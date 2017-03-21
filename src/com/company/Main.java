@@ -6,7 +6,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int size = 200000;
+        int size = 20000;
         BaseSort selectionSort = new SelectionSort(size);
         BaseSort bubbleSort = new BubbleSort(size);
         for (int i = 0; i < size; i++) {
@@ -16,16 +16,17 @@ public class Main {
         }
 
         //sort.print();
-        long before = System.currentTimeMillis();
-        long counterBubble = bubbleSort.sort();
-        long after = System.currentTimeMillis();
-        System.out.println("\n counterBubble    =\t" + counterBubble + "\t time = " + (after - before));
-
-        before = System.currentTimeMillis();
-        long counterSelection = selectionSort.sort();
-        after = System.currentTimeMillis();
         //sort.print();
-        System.out.println("\n counterSelection =\t" + counterSelection  + "\t time = " + (after - before));
+
+        testBaseSort(bubbleSort, "Bubble");
+        testBaseSort(selectionSort, "Selection");
+    }
+
+    static void testBaseSort(BaseSort sort, String name) {
+        long before = System.currentTimeMillis();
+        long counterBubble = sort.sort();
+        long after = System.currentTimeMillis();
+        System.out.println("\n counter" + name + "    =\t" + counterBubble + "\t time = " + (after - before));
     }
 
     static void testSelection() {
