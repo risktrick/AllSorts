@@ -6,27 +6,40 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int size = 20000;
+//        int size = 10_000;
+//        BaseSort sort = new InsertionSort(size);
+//        for (int i = 0; i < size; i++) {
+//            int random = new Random().nextInt(100) + 1;
+//            sort.insert(random);
+//        }
+//
+//        testBaseSort(sort, "insertion");
+
+        copmpareSorts();
+    }
+
+    static void copmpareSorts() {
+        int size = 40_000;
         BaseSort selectionSort = new SelectionSort(size);
         BaseSort bubbleSort = new BubbleSort(size);
+        BaseSort insertionSort = new InsertionSort(size);
         for (int i = 0; i < size; i++) {
             int random = new Random().nextInt(100) + 1;
             bubbleSort.insert(random);
             selectionSort.insert(random);
+            insertionSort.insert(random);
         }
-
-        //sort.print();
-        //sort.print();
 
         testBaseSort(bubbleSort, "Bubble");
         testBaseSort(selectionSort, "Selection");
+        testBaseSort(insertionSort, "Insertion");
     }
 
     static void testBaseSort(BaseSort sort, String name) {
         long before = System.currentTimeMillis();
         long counterBubble = sort.sort();
         long after = System.currentTimeMillis();
-        System.out.println("\n counter" + name + "    =\t" + counterBubble + "\t time = " + (after - before));
+        System.out.println("\n counter " + name + "    =\t" + counterBubble + "\t time = " + (after - before));
     }
 
     static void testSelection() {
