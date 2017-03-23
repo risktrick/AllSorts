@@ -9,13 +9,22 @@ public class MergeSort extends BaseSort {
     long sort() {
         print();
 
+        array = mergeSort(array);
+
+        print();
+
+        return 0;
+    }
+
+    int[] merge(int[] a, int[] b) {
         int[] result = new int[size];
 
         int a1 = 0;
-        final int a2 = (size - 1) /2;
+        int a2 = a.length - 1;
 
-        int b1 = a2 + 1;
-        final int b2 = size - 1;
+        int b1 = 0;
+        int b2 = b.length - 1;
+
 
         int resultCounter = 0;
 
@@ -71,26 +80,39 @@ public class MergeSort extends BaseSort {
             for (int i = 0; i < size - 1; i++) {
                 System.out.print(result[i] + "\t");
             }
-            System.out.println();System.out.println();
-
+            System.out.println();
+            System.out.println();
         }
-
-
         System.out.print("RESULT:");
         for (int i = 0; i <= size - 1; i++) {
             System.out.print(result[i] + "\t");
         }
         System.out.println();
-        return 0;
+        return result;
     }
 
+    int[] mergeSort(int[] arr) {
+        if (arr.length >= 2) {
+            int arrSize = arr.length;
+            int leftSize = arrSize/2;
+            int rightSize = arrSize - leftSize;
+            int[] left = new int[leftSize];
+            int[] right = new int[rightSize];
 
-    void mergeSort(int from, int to) {
-        if (from == to) {
-            return;
+            for (int j=0, i = 0; i <= leftSize - 1;j++, i++) {
+                left[j] = arr[i];
+            }
+
+            for (int j=0, i = leftSize; i <= rightSize - 1; j++, i++) {
+                right[j] = arr[i];
+            }
+
+            int[] a = mergeSort(left);
+            int[] b = mergeSort(right);
+            return merge(a, b);
+        } else {
+            return arr;
         }
 
-        mergeSort(0, (size - 1) /2);
-        mergeSort((size - 1) /2 + 1, size - 1);
     }
 }
