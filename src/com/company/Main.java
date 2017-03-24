@@ -20,7 +20,7 @@ public class Main {
     }
 
     static void copmpareSorts() {
-        int size = 60_000_000;
+        int size = 200_000;
         BaseSort selectionSort = new SelectionSort(size);
         BaseSort bubbleSort = new BubbleSort(size);
         BaseSort insertionSort = new InsertionSort(size);
@@ -37,7 +37,7 @@ public class Main {
 
 //        testBaseSort(bubbleSort, "Bubble");
 //        testBaseSort(selectionSort, "Selection");
-//        testBaseSort(insertionSort, "Insertion");
+        testBaseSort(insertionSort, "Insertion");
         testBaseSort(mergeSort, "Merge");
         testBaseSort(bookMergeSort, "bookMerge");
     }
@@ -46,7 +46,7 @@ public class Main {
         long before = System.currentTimeMillis();
         long counterBubble = sort.sort();
         long after = System.currentTimeMillis();
-        System.out.println("\n counter " + name + "    =\t" + counterBubble + "\t time = " + (after - before));
+        System.out.println("\n" + name + " counter =\t" + counterBubble + "\t time = " + (after - before));
     }
 
     static void testSelection() {
