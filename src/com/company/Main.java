@@ -6,7 +6,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int size = 10;
+        int size = 10_000_000;
         BaseSort sort = new MergeSort(size);
         for (int i = 0; i < size; i++) {
             int random = new Random().nextInt(100) + 1;
@@ -15,23 +15,27 @@ public class Main {
 
         testBaseSort(sort, "merge");
 
+        //copmpareSorts();
     }
 
     static void copmpareSorts() {
-        int size = 40_000;
+        int size = 100_000;
         BaseSort selectionSort = new SelectionSort(size);
         BaseSort bubbleSort = new BubbleSort(size);
         BaseSort insertionSort = new InsertionSort(size);
+        BaseSort mergeSort = new MergeSort(size);
         for (int i = 0; i < size; i++) {
             int random = new Random().nextInt(100) + 1;
             bubbleSort.insert(random);
             selectionSort.insert(random);
             insertionSort.insert(random);
+            mergeSort.insert(random);
         }
 
         testBaseSort(bubbleSort, "Bubble");
         testBaseSort(selectionSort, "Selection");
         testBaseSort(insertionSort, "Insertion");
+        testBaseSort(mergeSort, "merge");
     }
 
     static void testBaseSort(BaseSort sort, String name) {

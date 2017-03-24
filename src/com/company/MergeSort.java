@@ -7,11 +7,11 @@ public class MergeSort extends BaseSort {
 
     @Override
     long sort() {
-        print();
+        //print();
 
         array = mergeSort(array);
 
-        print();
+        //print();
 
         return 0;
     }
@@ -104,21 +104,21 @@ public class MergeSort extends BaseSort {
         int resultCounter = 0;
 
 
-        System.out.print("\na1 ... a2: ");
-        for (int i = a1; i <= a2; i++) {
-            System.out.print(a[i] + "\t");
-        }
-        System.out.println();
-
-        System.out.print("b1 ... b2: ");
-        for (int i = b1; i <= b2; i++) {
-            System.out.print(b[i] + "\t");
-        }
-        System.out.println();
+//        System.out.print("\na1 ... a2: ");
+//        for (int i = a1; i <= a2; i++) {
+//            System.out.print(a[i] + "\t");
+//        }
+//        System.out.println();
+//
+//        System.out.print("b1 ... b2: ");
+//        for (int i = b1; i <= b2; i++) {
+//            System.out.print(b[i] + "\t");
+//        }
+//        System.out.println();
 
         while (true) {
             if (a1 > a2) {
-                System.out.println("сливаем весь B в result");
+                //System.out.println("сливаем весь B в result");
                 for (int i = b1; i <= b2; i++) {
                     result[resultCounter] = b[b1];
                     b1++;                   // rudiment
@@ -127,7 +127,7 @@ public class MergeSort extends BaseSort {
                 break;
             }
             if (b1 > b2) {
-                System.out.println("сливаем весь A в result");
+                //System.out.println("сливаем весь A в result");
                 for (int i = a1; i <= a2; i++) {
                     result[resultCounter] = a[a1];
                     a1++;                   // rudiment
@@ -140,7 +140,7 @@ public class MergeSort extends BaseSort {
             int aElement = a[a1];
             int bElement = b[b1];
 
-            System.out.println("comparing: " + aElement + " " + bElement);
+            //System.out.println("comparing: " + aElement + " " + bElement);
 
             if (aElement < bElement) {
                 result[resultCounter] = a[a1];
@@ -151,27 +151,28 @@ public class MergeSort extends BaseSort {
                 b1++;
                 resultCounter++;
             }
-            System.out.print("result: ");
-            for (int i = 0; i < result.length - 1; i++) {
-                System.out.print(result[i] + "\t");
-            }
-            System.out.println();
-            System.out.println();
+            //System.out.print("result: ");
+//            for (int i = 0; i < result.length - 1; i++) {
+//                System.out.print(result[i] + "\t");
+//            }
+            //System.out.println();
+            //System.out.println();
         }
-        System.out.print("RESULT:");
-        for (int i = 0; i <= result.length - 1; i++) {
-            System.out.print(result[i] + "\t");
-        }
-        System.out.println();
+        //System.out.print("RESULT:");
+//        for (int i = 0; i <= result.length - 1; i++) {
+//            System.out.print(result[i] + "\t");
+//        }
+        //System.out.println();
         return result;
     }
 
     int[] mergeSort(int[] arr) {
 
-        System.out.println("\nmergeSort for:");
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + "\t");
-        }
+        //System.out.println("\nmergeSort for:");
+
+//        for (int i = 0; i < arr.length; i++) {
+//            System.out.print(arr[i] + "\t");
+//        }
 
         if (arr.length >= 2) {
             int arrSize = arr.length;
