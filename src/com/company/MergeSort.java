@@ -92,6 +92,12 @@ public class MergeSort extends BaseSort {
     }
 
     int[] mergeSort(int[] arr) {
+
+        System.out.println("\nmergeSort for:");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + "\t");
+        }
+
         if (arr.length >= 2) {
             int arrSize = arr.length;
             int leftSize = arrSize/2;
@@ -103,7 +109,7 @@ public class MergeSort extends BaseSort {
                 left[j] = arr[i];
             }
 
-            for (int j=0, i = leftSize; i <= rightSize - 1; j++, i++) {
+            for (int j=0, i = leftSize; i <= arr.length - 1; j++, i++) {
                 right[j] = arr[i];
             }
 
