@@ -6,7 +6,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int size = 2;
+        int size = 10;
         BaseSort sort = new MergeSort(size);
         for (int i = 0; i < size; i++) {
             int random = new Random().nextInt(100) + 1;
