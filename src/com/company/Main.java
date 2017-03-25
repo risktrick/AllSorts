@@ -1,31 +1,31 @@
 package com.company;
 
-import java.lang.reflect.Array;
 import java.util.Random;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        int size = 20;
-        BaseSort sort = new Partition(size);
-        for (int i = 0; i < size; i++) {
-            int random = new Random().nextInt(100) + 1;
-            sort.insert(random);
-        }
+//        int size = 1000;
+//        BaseSort sort = new QuickSort(size);
+//        for (int i = 0; i < size; i++) {
+//            int random = new Random().nextInt(100) + 1;
+//            sort.insert(random);
+//        }
+//
+//        testBaseSort(sort, "QuickSort");
 
-        testBaseSort(sort, "Partition");
-
-//        copmpareSorts();
+        copmpareSorts();
     }
 
     static void copmpareSorts() {
-        int size = 200_000;
+        int size = 10_000_000;
         BaseSort selectionSort = new SelectionSort(size);
         BaseSort bubbleSort = new BubbleSort(size);
         BaseSort insertionSort = new InsertionSort(size);
         BaseSort mergeSort = new MergeSort(size);
         BaseSort bookMergeSort = new BookMergeSort(size);
+        BaseSort quickSort = new QuickSort(size);
         for (int i = 0; i < size; i++) {
             int random = new Random().nextInt(10000) + 1;
             bubbleSort.insert(random);
@@ -33,13 +33,15 @@ public class Main {
             insertionSort.insert(random);
             mergeSort.insert(random);
             bookMergeSort.insert(random);
+            quickSort.insert(random);
         }
 
 //        testBaseSort(bubbleSort, "Bubble");
 //        testBaseSort(selectionSort, "Selection");
-        testBaseSort(insertionSort, "Insertion");
+//        testBaseSort(insertionSort, "Insertion");
         testBaseSort(mergeSort, "Merge");
         testBaseSort(bookMergeSort, "bookMerge");
+        testBaseSort(quickSort, "QuickSort");
     }
 
     static void testBaseSort(BaseSort sort, String name) {
