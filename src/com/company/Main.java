@@ -7,16 +7,16 @@ public class Main {
 
     public static void main(String[] args) {
 
-//        int size = 10;
-//        BaseSort sort = new BookMergeSort(size);
-//        for (int i = 0; i < size; i++) {
-//            int random = new Random().nextInt(100) + 1;
-//            sort.insert(random);
-//        }
-//
-//        testBaseSort(sort, "merge");
+        int size = 20;
+        BaseSort sort = new Partition(size);
+        for (int i = 0; i < size; i++) {
+            int random = new Random().nextInt(100) + 1;
+            sort.insert(random);
+        }
 
-        copmpareSorts();
+        testBaseSort(sort, "Partition");
+
+//        copmpareSorts();
     }
 
     static void copmpareSorts() {
