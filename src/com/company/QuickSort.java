@@ -21,13 +21,50 @@ public class QuickSort extends BaseSort {
     }
 
     void recQuickSort(int left, int right) {
-        if (right - left <= 0) {
-            return;
+        int size = right - left + 1; //indexes to size
+        if (size <= 3) {
+            manualSort(left, right);
         } else {
-            int pivot = array[right];
+            int pivot = medianOf3(left, right);
             int separator = partition(left, right, pivot);
             recQuickSort(left, separator - 1);
             recQuickSort(separator + 1, right);
+        }
+    }
+
+    private int medianOf3(int left, int right) {
+        int center = (left + right) / 2;    //75 : (50 + 100)/2
+        if (array[left] > array[center])
+            swap(left, center);
+
+        if (array[left] > array[right])
+            swap(left, right);
+
+        if (array[center] > array[right])
+            swap(center,right);
+
+        swap(center, right - 1);
+        return array[right-1];
+    }
+
+    private void manualSort(int left, int right) {
+        int size = right - left + 1;
+        if (size <= 1)
+            return;
+
+        if (size == 2) {
+            if (array[left] > array[right])
+                swap(left, right);
+            return;
+        } else {
+            if (array[left] > array [right-1])
+                swap(left, right-1);
+
+            if (array[left] > array [right])
+                swap(left, right);
+
+            if (array[right-1] > array [right])
+                swap(right-1, right);
         }
     }
 
