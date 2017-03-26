@@ -6,16 +6,16 @@ public class Main {
 
     public static void main(String[] args) {
 
-//        int size = 1000;
-//        BaseSort sort = new QuickSort(size);
-//        for (int i = 0; i < size; i++) {
-//            int random = new Random().nextInt(100) + 1;
-//            sort.insert(random);
-//        }
-//
-//        testBaseSort(sort, "QuickSort");
+        int size = 8;
+        BaseSort sort = new BookMergeSort(size);
+        for (int i = 0; i < size; i++) {
+            int random = new Random().nextInt(100) + 1;
+            sort.insert(random);
+        }
 
-        copmpareSorts();
+        testBaseSort(sort, "BookMergeSort");
+
+        //copmpareSorts();
     }
 
     static void copmpareSorts() {
