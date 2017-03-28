@@ -44,6 +44,13 @@ public class HeapSort extends BaseSort{
     }
 
     private void trickleDown(int index) {
+
+        while (index <= (size - 1) / 2) {
+            System.out.println("# " + array[index] + " " + index);
+            index = 2*index + 1;
+            System.out.println("#new index: " + index + " while: " + (size - 1) / 2 + " size = " + size);
+        }
+        /*
         int leftChildIndex  = 2*index + 1;
         int rightChildIndex = 2*index + 2;
 
@@ -70,5 +77,6 @@ public class HeapSort extends BaseSort{
                 //swap with right
             }
         }
+        */
     }
 }

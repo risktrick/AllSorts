@@ -26,6 +26,8 @@ public class Main {
 
         sort.print();
 
+        sort.removeHead();
+
 
 //        testBaseSort(sort, "HeapSort");
 
