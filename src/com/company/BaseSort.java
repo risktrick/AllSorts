@@ -12,8 +12,12 @@ public abstract class BaseSort {
     }
 
     void insert(int value) {
-        array[size] = value;
-        size++;
+        if (size < capacity) {
+            array[size] = value;
+            size++;
+        } else {
+            throw new RuntimeException("out of bounds! size = " + size + " capacity = " + capacity);
+        }
     }
 
     abstract long sort ();

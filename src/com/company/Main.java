@@ -6,16 +6,31 @@ public class Main {
 
     public static void main(String[] args) {
 
-//        int size = 1000;
-//        BaseSort sort = new QuickSort(size);
+        int size = 10;
+        HeapSort sort = new HeapSort(size);
 //        for (int i = 0; i < size; i++) {
 //            int random = new Random().nextInt(100) + 1;
 //            sort.insert(random);
 //        }
-//
-//        testBaseSort(sort, "QuickSort");
 
-        copmpareSorts();
+        sort.insert(91);    //0
+        sort.insert(58);    //1
+        sort.insert(78);
+        sort.insert(53);    //3
+        sort.insert(42);
+        sort.insert(17);    //5
+        sort.insert(29);
+        sort.insert(2);     //7
+        sort.insert(50);
+        sort.insert(36);    //9
+
+        sort.print();
+
+
+//        testBaseSort(sort, "HeapSort");
+
+
+//        copmpareSorts();
     }
 
     static void copmpareSorts() {
