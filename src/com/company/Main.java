@@ -5,18 +5,29 @@ import java.util.Random;
 public class Main {
 
     public static void main(String[] args) {
-//        int size = 10_000_000;
+//        int size = 10;
 //        HeapSort heapSort = new HeapSort(size);
 //        for (int i = 0; i < size; i++) {
-//            int random = new Random().nextInt(10000) + 1;
+//            int random = new Random().nextInt(100) + 1;
 //            heapSort.insert(random);
 //        }
+
+//        heapSort.insertToArray(10);    //0
+//        heapSort.insertToArray(17);    //1
+//        heapSort.insertToArray(55);
+//        heapSort.insertToArray(11);    //3
+//        heapSort.insertToArray(16);
+//        heapSort.insertToArray(29);    //5
+//        heapSort.insertToArray(37);
+//        heapSort.insertToArray(1);     //7
+//        heapSort.insertToArray(89);
+//        heapSort.insertToArray(44);    //9
 //
+//        heapSort.sort();
+
 //        int[] result = new int[size];
 //        long before = System.currentTimeMillis();
-//        for (int i = 0; i < size; i++) {
-//            result[i] = heapSort.removeHead();
-//        }
+//        heapSort.sort();
 //        long after = System.currentTimeMillis();
 //        System.out.println("\n" + "HeapSort" + " counter =\t" + 0 + "\t time = " + (after - before));
 
@@ -33,6 +44,7 @@ public class Main {
         BaseSort quickSort = new QuickSort(size);
 
         HeapSort heapSort = new HeapSort(size);
+        HeapSort heapSort2 = new HeapSort(size);
         for (int i = 0; i < size; i++) {
             int random = new Random().nextInt(1_000_000) + 1;
             bubbleSort.insert(random);
@@ -42,6 +54,7 @@ public class Main {
             bookMergeSort.insert(random);
             quickSort.insert(random);
             heapSort.insert(random);
+            heapSort2.insertToArray(random);
         }
 
 //        testBaseSort(bubbleSort, "Bubble");
@@ -51,6 +64,7 @@ public class Main {
         testBaseSort(bookMergeSort, "bookMerge");
         testBaseSort(quickSort, "QuickSort");
         testHeapSort(heapSort, "HeapSort", size);
+        testHeapSort(heapSort2, "HeapSort2", size);
     }
 
     static void testBaseSort(BaseSort sort, String name) {
@@ -63,6 +77,7 @@ public class Main {
     static void testHeapSort(HeapSort heapSort, String name, int size) {
         int[] result = new int[size];
         long before = System.currentTimeMillis();
+        heapSort.sort();
         for (int i = 0; i < size; i++) {
             result[i] = heapSort.removeHead();
         }

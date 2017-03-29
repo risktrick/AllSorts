@@ -8,8 +8,10 @@ public class HeapSort extends BaseSort{
     @Override
     long sort() {
 
-        print();
-
+        for (int j = size/2 - 1; j >= 0; j--) {
+            trickleDown(j);
+        }
+        //call removeHead method in outer user class
         return 0;
     }
 
@@ -17,6 +19,10 @@ public class HeapSort extends BaseSort{
     void insert(int a) {
         super.insert(a);
         trickleUp(size - 1);
+    }
+
+    void insertToArray(int a) {
+        super.insert(a);
     }
 
     private void trickleUp(int index) {             //текущее значение
@@ -48,14 +54,14 @@ public class HeapSort extends BaseSort{
 
         while (index <= size - 1) {
 //            System.out.println("current_value = " + array[index] + " current_index = " + index);    //old element value. в index  На самом деле дыра
-//            System.out.println("#new index: " + index + " while: " + (size - 1) / 2 + " size = " + size);
+//            System.out.println("#new index: " + index + " while: " + (size - 1) + " size = " + size);
 
 
             int leftChildIndex = 2 * index + 1;
             int rightChildIndex = 2 * index + 2;
 
             if (leftChildIndex <= size - 1 && rightChildIndex <= size - 1) {    //если вообще существуют оба
-//                System.out.println( "headValue = " + headValue + " left = " + array[leftChildIndex] + " right = " + array[rightChildIndex]);
+//                System.out.println( "headValue = " + headValue + " leftValue = " + array[leftChildIndex] + " rightValue = " + array[rightChildIndex]);
 
                 if (headValue < array[leftChildIndex] || headValue < array[rightChildIndex]) {
                     //поиск наибольшего
