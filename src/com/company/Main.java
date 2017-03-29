@@ -5,35 +5,22 @@ import java.util.Random;
 public class Main {
 
     public static void main(String[] args) {
-
-        int size = 10;
-        HeapSort sort = new HeapSort(size);
+//        int size = 10_000_000;
+//        HeapSort heapSort = new HeapSort(size);
 //        for (int i = 0; i < size; i++) {
-//            int random = new Random().nextInt(100) + 1;
-//            sort.insert(random);
+//            int random = new Random().nextInt(10000) + 1;
+//            heapSort.insert(random);
 //        }
+//
+//        int[] result = new int[size];
+//        long before = System.currentTimeMillis();
+//        for (int i = 0; i < size; i++) {
+//            result[i] = heapSort.removeHead();
+//        }
+//        long after = System.currentTimeMillis();
+//        System.out.println("\n" + "HeapSort" + " counter =\t" + 0 + "\t time = " + (after - before));
 
-        sort.insert(91);    //0
-        sort.insert(58);    //1
-        sort.insert(78);
-        sort.insert(53);    //3
-        sort.insert(42);
-        sort.insert(17);    //5
-        sort.insert(29);
-        sort.insert(2);     //7
-        sort.insert(50);
-        sort.insert(36);    //9
-
-        sort.print();
-
-        sort.removeHead();
-
-        sort.print();
-
-//        testBaseSort(sort, "HeapSort");
-
-
-//        copmpareSorts();
+        copmpareSorts();
     }
 
     static void copmpareSorts() {
@@ -44,14 +31,17 @@ public class Main {
         BaseSort mergeSort = new MergeSort(size);
         BaseSort bookMergeSort = new BookMergeSort(size);
         BaseSort quickSort = new QuickSort(size);
+
+        HeapSort heapSort = new HeapSort(size);
         for (int i = 0; i < size; i++) {
-            int random = new Random().nextInt(10000) + 1;
+            int random = new Random().nextInt(1_000_000) + 1;
             bubbleSort.insert(random);
             selectionSort.insert(random);
             insertionSort.insert(random);
             mergeSort.insert(random);
             bookMergeSort.insert(random);
             quickSort.insert(random);
+            heapSort.insert(random);
         }
 
 //        testBaseSort(bubbleSort, "Bubble");
@@ -60,6 +50,7 @@ public class Main {
         testBaseSort(mergeSort, "Merge");
         testBaseSort(bookMergeSort, "bookMerge");
         testBaseSort(quickSort, "QuickSort");
+        testHeapSort(heapSort, "HeapSort", size);
     }
 
     static void testBaseSort(BaseSort sort, String name) {
@@ -67,6 +58,16 @@ public class Main {
         long counterBubble = sort.sort();
         long after = System.currentTimeMillis();
         System.out.println("\n" + name + " counter =\t" + counterBubble + "\t time = " + (after - before));
+    }
+
+    static void testHeapSort(HeapSort heapSort, String name, int size) {
+        int[] result = new int[size];
+        long before = System.currentTimeMillis();
+        for (int i = 0; i < size; i++) {
+            result[i] = heapSort.removeHead();
+        }
+        long after = System.currentTimeMillis();
+        System.out.println("\n" + name + " counter =\t" + 0 + "\t time = " + (after - before));
     }
 
     static void testSelection() {

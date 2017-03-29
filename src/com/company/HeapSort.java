@@ -47,7 +47,7 @@ public class HeapSort extends BaseSort{
         int headValue = array[index];
 
         while (index <= size - 1) {
-            System.out.println("current_value = " + array[index] + " current_index = " + index);    //old element value. в index  На самом деле дыра
+//            System.out.println("current_value = " + array[index] + " current_index = " + index);    //old element value. в index  На самом деле дыра
 //            System.out.println("#new index: " + index + " while: " + (size - 1) / 2 + " size = " + size);
 
 
@@ -55,9 +55,7 @@ public class HeapSort extends BaseSort{
             int rightChildIndex = 2 * index + 2;
 
             if (leftChildIndex <= size - 1 && rightChildIndex <= size - 1) {    //если вообще существуют оба
-                System.out.println( "headValue = " + headValue +
-                                    " left = " + array[leftChildIndex] +
-                                    " right = " + array[rightChildIndex]);
+//                System.out.println( "headValue = " + headValue + " left = " + array[leftChildIndex] + " right = " + array[rightChildIndex]);
 
                 if (headValue < array[leftChildIndex] || headValue < array[rightChildIndex]) {
                     //поиск наибольшего
