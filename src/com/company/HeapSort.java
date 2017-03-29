@@ -44,39 +44,51 @@ public class HeapSort extends BaseSort{
     }
 
     private void trickleDown(int index) {
+        int headValue = array[index];
 
-        while (index <= (size - 1) / 2) {
-            System.out.println("# " + array[index] + " " + index);
-            index = 2*index + 1;
-            System.out.println("#new index: " + index + " while: " + (size - 1) / 2 + " size = " + size);
-        }
-        /*
-        int leftChildIndex  = 2*index + 1;
-        int rightChildIndex = 2*index + 2;
+        while (index <= size - 1) {
+            System.out.println("current_value = " + array[index] + " current_index = " + index);    //old element value. в index  На самом деле дыра
+//            System.out.println("#new index: " + index + " while: " + (size - 1) / 2 + " size = " + size);
 
-        //если вообще существует левый и правый потомок
-        if (leftChildIndex <= size) {
-            if (rightChildIndex <= size) {
 
+            int leftChildIndex = 2 * index + 1;
+            int rightChildIndex = 2 * index + 2;
+
+            if (leftChildIndex <= size - 1 && rightChildIndex <= size - 1) {    //если вообще существуют оба
+                System.out.println( "headValue = " + headValue +
+                                    " left = " + array[leftChildIndex] +
+                                    " right = " + array[rightChildIndex]);
+
+                if (headValue < array[leftChildIndex] || headValue < array[rightChildIndex]) {
+                    //поиск наибольшего
+                    if (array[leftChildIndex] > array[rightChildIndex]) {
+                        array[index] = array[leftChildIndex];
+                        index = leftChildIndex; //дыра
+                    } else {
+                        array[index] = array[rightChildIndex];
+                        index = rightChildIndex; //дыра
+                    }
+                } else {
+                    break;
+                }
+            } else if (leftChildIndex <= size - 1 ) {                           //если существует левый
+                if (headValue < array[leftChildIndex]) {
+                    array[index] = array[leftChildIndex];
+                    index = leftChildIndex; //дыра
+                } else {
+                    break;
+                }
+            } else if (rightChildIndex <= size - 1 ) {                          //если существует правый
+                if (headValue < array[rightChildIndex]) {
+                    array[index] = array[rightChildIndex];
+                    index = rightChildIndex; //дыра
+                } else {
+                    break;
+                }
+            } else {
+                break;
             }
         }
-
-        // и если они больше значения
-
-        //если существуют оба  -- выбираем наибольший и swap
-
-        //если только один то с ним
-
-        if (array[index] > array[leftChildIndex] && array[index] > array[rightChildIndex]) {
-            return;
-        } else {
-            if (array[index] < array[leftChildIndex]){
-                //swap with left
-            }
-            if (array[index] < array[rightChildIndex]){
-                //swap with right
-            }
-        }
-        */
+        array[index] = headValue;
     }
 }
